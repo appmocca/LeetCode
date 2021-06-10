@@ -15,3 +15,14 @@ public:
         return numbers[low] ;
     }
 };
+
+// Just for fun
+class Solution {
+public:
+    int minArray(vector<int>& numbers) {
+        int ans = INT_MAX ;
+        for (size_t i = 0; i < numbers.size(); i++)
+            ans = min(ans, numbers[i]) ;
+        return ans ;
+    }
+};
