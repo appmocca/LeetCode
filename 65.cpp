@@ -56,7 +56,7 @@ public:
     bool isNumber(string s) {
         //Initialize the unordered_map which only has one purpose: to determine
         //Logic flow explained at the beginning
-        unordered_map<State, unordered_map<Chartype, State>> transfer{
+        unordered_map<State, unordered_map<Chartype, State>> determine{
             {
                 State_Initial, {
                     {Char_Number, State_Int},
@@ -64,12 +64,14 @@ public:
                     {Char_Sign, State_Sign}
                 }
             },
+            
             {
                 State_Sign, {
                     {Char_Point, State_Point_Without_Int},
                     {Char_Number, State_Int}
                 }
             },
+            
             {
                 State_Int, {
                     {Char_Number, State_Int},
@@ -77,34 +79,40 @@ public:
                     {Char_Point, State_Point}
                 }
             },
+            
             {
                 State_Point, {
                     {Char_Exp, State_Exp},
                     {Char_Number, State_Fraction}
                 }
             },
+            
             {
                 State_Point_Without_Int, {
                     {Char_Number, State_Fraction}
                 }
             },
+           
             {
                 State_Fraction, {
                     {Char_Number, State_Fraction},
                     {Char_Exp, State_Exp}
                 }
             },
+           
             {
                 State_Exp, {
                     {Char_Sign, State_Exp_Sign},
                     {Char_Number, State_Exp_Num}
                 }
             },
+            
             {
                 State_Exp_Sign, {
                     {Char_Number, State_Exp_Num}
                 }
             },
+            
             {
                 State_Exp_Num, {
                     {Char_Number, State_Exp_Num}
@@ -118,8 +126,8 @@ public:
         for (size_t i = 0; i < len; i++){
             Chartype type = toCharType(s[i]) ;
             //If cannout find any state to match a chartype, return false
-            if (transfer[state].find(type) == transfer[state].end())    return false ;
-            else    state = transfer[state][type] ;
+            if (determine[state].find(type) == determine[state].end())    return false ;
+            else    state = determine[state][type] ;
         }
 
         //Only these state are vaild and can be returned as true
