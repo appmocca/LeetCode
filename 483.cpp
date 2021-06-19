@@ -1,12 +1,13 @@
 #define LL long long
+
 class Solution {
 private:
-    LL isGoodNum(LL mid, int m, LL number){
+    LL isGoodNum(LL mid, int iteration, LL number){
         LL num = 0 ;
-        for (int i = 0; i < m; i++){
+        for (int i = 0; i < iteration; i++){
             num = num * mid + 1 ;
-            //If the number exceed the range of [m-1, (number - 1) / mid]
-            if (i < m - 1 && num > (number - 1) / mid)    return number + 1 ;
+            //If the number exceed the range of [iteration-1, (number - 1) / mid]
+            if (i < iteration - 1 && num > (number - 1) / mid)    return number + 1 ;
         }
         return num ;
     }
