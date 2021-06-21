@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ 
 #define LN ListNode
 class Solution {
 public:
