@@ -16,10 +16,8 @@ public:
             record.push_back(head -> val) ;
             head = head -> next ;
         }
-        
         for (int i = 0, j = record.size() - 1; i < j; i++, j--)
-            if (record[i] != record[j])
-                return false ;
+            if (record[i] != record[j])     return false ;
         return true ;
     }
 };

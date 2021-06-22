@@ -11,17 +11,12 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root, vector<int>& res){
-        if (!root)
-            return ;
-        inorder(root -> left, res) ;    //Travel start from left
-        res.push_back(root -> val) ;
-        inorder(root -> right, res) ;
+    bool check(TreeNode* a, TreeNode* b){
+        if (!a && !b)   return true ;
+        if (!a || !b)   return false ;
+        return a->val == b->val && check(a->left, b->right) && check(a->right, b->left) ;
     }
-
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> ans ;
-        inorder(root, ans) ;
-        return ans ;
+    bool isSymmetric(TreeNode* root) {
+        return check(root, root) ;
     }
 };
