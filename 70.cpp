@@ -9,3 +9,16 @@ public:
         return dp[n] ;
     }
 };
+
+class Solution {
+public:
+    int climbStairs(int n) {
+        int p = 0, q = 0, ans = 1 ;
+        for (int i = 0; i < n; i++){
+            p = q ;
+            q = ans ;
+            ans = p + q ;
+        }
+        return ans ;
+    }
+};

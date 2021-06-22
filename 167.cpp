@@ -2,10 +2,10 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
         int len = numbers.size() ;
-        for (int i = 0; i < len; ++i){
+        for (int i = 0; i < len; i++){
             int low = i + 1, high = len - 1 ;
             while (low <= high){
-                int mid = (high - low) / 2 + low ;
+                int mid = low + (high - low) / 2 ;
                 if (numbers[mid] == target - numbers[i])
                     return {i + 1, mid + 1} ;
                 else if (numbers[mid] > target - numbers[i])
