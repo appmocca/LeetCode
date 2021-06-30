@@ -1,3 +1,4 @@
+// BFS
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
@@ -34,6 +35,8 @@ public:
     }
 };
 
+
+// Bi-Directional BFS
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
