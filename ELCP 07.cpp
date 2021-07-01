@@ -1,36 +1,31 @@
 class Solution {
 public:
     int numWays(int n, vector<vector<int>>& relation, int k) {
-        int size = relation.size();
-        map<int, vector<int>> record;
+        //BFS
+        map<int, vector<int>> record ;
+        for (vector<int> v : relation)  record[v[0]].emplace_back(v[1]) ;
+        queue<int> q ;
+        q.push(0) ;
+        int ans = 0 ;
 
-        for(int i = 0; i < size; ++i){
-            record[relation[i][0]].emplace_back(relation[i][1]);
-        }
+        while (k--){
+            int size = q.size() ;
+            while (size--){
+                int curr = q.front() ;
+                q.pop() ;
 
-        int ans = 0;
-        queue<int> que;
-        que.push(0);
-
-        while(k--){
-            int temp = que.size();
-            while (temp--){
-                auto curr = que.front();
-                que.pop();
-
-                int s = record[curr].size();
-                for(int i = 0; i < s; ++i){
-                    que.push(record[curr][i]);
+                vector<int> temp = record[curr] ;
+                for (int i = 0 ; i < temp.size(); i++){
+                    q.push(temp[i]) ;
                 }
             }
         }
 
-        while(!que.empty()){
-            auto curr = que.front();
-            if (curr == n - 1) ans ++;
-            que.pop();
+        while (q.size()){
+            int curr = q.front() ;
+            if (curr == n - 1) ans++ ;
+            q.pop() ;
         }
-
-        return ans;
+        return ans ;
     }
 };
