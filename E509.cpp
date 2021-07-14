@@ -12,3 +12,17 @@ public:
         return ans ;
     }
 };
+
+class Solution {
+public:
+    int fib(int n) {
+        int prev = 0, curr = 0, ans = 1 ;
+        if (!n) return n ;
+        for (int i = 1; i < n; i++){
+            prev = curr ;
+            curr = ans  ;
+            ans  = curr + prev ;
+        }
+        return ans ;
+    }
+};

@@ -13,7 +13,7 @@ public:
 
     bool check(vector<int>& citations, int mid){
         int ans = 0 ;
-        for (int times : citations) if (times >= mid) ans++ ;
-        return ans >= mid ;
+        for (int times : citations) if (times >= mid) ans++ ;   //Since citations number mustnot less than hIndex
+        return ans >= mid ; //Return if current number fits hIndex required
     }
 };
