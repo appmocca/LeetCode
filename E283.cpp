@@ -20,3 +20,17 @@ public:
         }
     }
 };
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int len = nums.size() - 1, p = 0, curr = 0 ;
+        while (curr <= len){
+            if (nums[curr] == 0)    curr++ ;
+            else nums[p++] = nums[curr++] ;
+        }
+        while (p <= len){
+            nums[p++] = 0 ;
+        }
+    }
+};

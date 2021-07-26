@@ -11,8 +11,8 @@ public:
             if (record.count(num)) {
                 ans.push_back(num);
                 record[num]--;
-                if (!record[num])  record.erase(num);
             }
+            if (!record[num])  record.erase(num);
         return ans;
     }
 };

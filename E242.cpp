@@ -17,3 +17,17 @@ public:
         return rs == rt ;
     }
 };
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size())   return false ;
+        unordered_map<char,int> record ;
+        for (char c : s)    record[c]++ ;
+        for (char c : t){
+            if (!record[c]) return false ;
+            record[c]-- ;
+        }    
+        return true ;
+    }
+};

@@ -11,13 +11,10 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        ListNode *cpHead = new ListNode(0, head) ;  //Initialize cpHead start from 0 then the head
-        ListNode *tmp = cpHead ;    //Mofidy the copy of cpHead
+        ListNode *cpHead = new ListNode(0, head), *tmp = cpHead ;
         while (tmp -> next){
-            if (tmp -> next -> val == val)
-                tmp -> next = tmp -> next -> next ;
-            else
-                tmp = tmp -> next ;
+            if (tmp -> next -> val == val)  tmp -> next = tmp -> next -> next ;
+            else tmp = tmp -> next ;
         }
         return cpHead -> next ;
     }
