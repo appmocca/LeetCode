@@ -1,4 +1,4 @@
-E represent easy question
+E -> easy
 
 M -> medium
 
